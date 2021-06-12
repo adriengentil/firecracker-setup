@@ -1,19 +1,19 @@
 {
   "boot-source": {
-    "kernel_image_path": "/home/ad/Projects/firecracker/vmlinux",
-    "initrd_path": "/home/ad/Projects/firecracker/initrd",
+    "kernel_image_path": "vmlinux",
+    "initrd_path": "initrd",
     "boot_args": "console=ttyS0 reboot=k panic=1 pci=off"
   },
   "drives": [
     {
       "drive_id": "rootfs",
-      "path_on_host": "/home/ad/Projects/firecracker/rootfs.ext4",
+      "path_on_host": "rootfs.ext4",
       "is_root_device": true,
       "is_read_only": false
     },
     {
       "drive_id": "cloudinit",
-      "path_on_host": "/home/ad/Projects/firecracker/seed.iso",
+      "path_on_host": "seed.iso",
       "is_root_device": false,
       "is_read_only": true
     }
