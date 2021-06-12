@@ -69,3 +69,21 @@ curl --unix-socket /tmp/firecracker.socket -i     -X PUT "http://localhost/actio
 ```
 
 Note, you may have to delete `/tmp/firecracker.socket` before restarting the VM.
+
+
+## Bonus: run the same VM using qemu
+
+If you want to compare firecracker with qemu/microvm:
+
+```
+qemu-system-x86_64 \
+   -M microvm,x-option-roms=on,pit=off,pic=off,isa-serial=on,rtc=off \
+   -enable-kvm -cpu host -m 512m -smp 2 \
+   -kernel vmlinux -initrd initrd -append "earlyprintk=ttyS0 console=ttyS0 root=/dev/vda reboot=t" \
+   -nodefaults -no-user-config -nographic \
+   -serial stdio \
+   -drive id=test,file=rootfs.ext4,format=raw,if=none \
+   -device virtio-blk-device,drive=test \
+   -no-reboot
+```
+TODO: network
