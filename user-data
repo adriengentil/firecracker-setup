@@ -1,0 +1,8 @@
+#cloud-config
+users:
+  - name: foobar
+    gecos: Foo B. Bar
+    primary_group: foobar
+    groups: sudo
+    lock_passwd: false
+    passwd: $6$rounds=4096$PLunsxOTBM16VMn6$Yeicxq7CqfwjNp8c8qeE2fNZFwUVXD84DGubyH49MVRZUVtyfvLJJMGjC3QuqWEt6d1MtZsJEhFcuKpylkywB1
